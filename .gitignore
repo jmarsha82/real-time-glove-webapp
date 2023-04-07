@@ -1,0 +1,12 @@
+#python
+**/venv
+**/__pycache__
+/certs
+#intelliJ
+.idea
+#aws private keys
+**/*-private.pem.key
+#lib
+web-app/node_modules
+#temp files
+web-app/backend/hand_data.txt
