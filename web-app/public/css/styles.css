@@ -1,0 +1,48 @@
+
+.gameHeaderWindow {
+    background-color: blue;
+}
+
+.button-position {
+    float: right;
+}
+
+.background-app {
+    background-color: #F5F5F5;
+    height: 100%;
+}
+
+.output-display {
+    word-wrap: break-word;
+    height: 28px;
+    width: 400px;
+}
+
+.response-text {
+    padding: .2rem;
+}
+
+.terminal-response {
+    border: .3rem inset #cce5ff;
+    background-color: white;
+    font: small courier, monospace black;
+    width: 65rem;
+    height: 30rem;
+    margin: auto;
+    overflow: auto;
+    display: none;
+}
+
+.display-margin {
+  width: 65rem;
+  margin: auto;
+}
+
+.direction-sentence {
+    margin-left: 1.2rem;
+    font-weight: bold;
+}
+#letter-generator {
+    font-size: x-large;
+    font-weight: bold;
+}

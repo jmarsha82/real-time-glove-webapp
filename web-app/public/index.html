@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Real-Time Sign Language Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container background-app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light gameHeaderWindow">
+        <a class="navbar-brand" href="#">Real-Time Sign Language Game</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <button id="subscribe-button" class="btn btn-primary button-position" onclick="subscribeStart()" type="button"
+                    style="margin-left: 1rem">
+                Start Receiving
+            </button>
+        </div>
+    </nav>
+    <br/>
+    <form>
+        <div id="" class="">
+            <h6 class="direction-sentence">Sign a letter and click a button to verify your answer</h6>
+            <br/>
+            <h6 class="direction-sentence" id="wait-message"></h6>
+            <br/>
+            <button class="btn btn-warning" onclick="cloudStart('a')" type="button" style="margin-left: 1rem"> A
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('b')" type="button" style="margin-left: 1rem"> B
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('c')" type="button" style="margin-left: 1rem"> C
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('d')" type="button" style="margin-left: 1rem"> D
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('e')" type="button" style="margin-left: 1rem"> E
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('f')" type="button" style="margin-left: 1rem"> F
+            </button>
+            <button class="btn btn-warning" onclick="cloudStart('g')" type="button" style="margin-left: 1rem"> G
+            </button>
+        </div>
+    </form>
+    <br/>
+    <div class="alert alert-warning display-margin" role="alert" id="response-text">Waiting For Response</div>
+    <form>
+        <div id="output" class="terminal-response">
+        </div>
+    </form>
+    <br/>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
