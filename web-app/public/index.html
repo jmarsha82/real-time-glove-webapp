@@ -8,47 +8,49 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<div class="container background-app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light gameHeaderWindow">
-        <a class="navbar-brand" href="#">Real-Time Sign Language Game</a>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-            <button id="subscribe-button" class="btn btn-primary button-position" onclick="subscribeStart()" type="button"
-                    style="margin-left: 1rem">
+<main class="app-shell">
+    <section class="game-panel" aria-labelledby="game-title">
+        <nav class="game-nav">
+            <div>
+                <p class="game-label">AWS IoT glove classifier</p>
+                <h1 id="game-title">Real-Time Sign Language Game</h1>
+            </div>
+            <button id="subscribe-button" class="btn btn-primary button-position" onclick="subscribeStart()" type="button">
                 Start Receiving
             </button>
+        </nav>
+
+        <div class="game-body">
+            <section class="instructions" aria-labelledby="instructions-title">
+                <h2 id="instructions-title">Sign a letter, then verify the classifier result.</h2>
+                <p>
+                    Start the backend subscription service first. After it is ready, choose the letter you signed with
+                    the glove to compare it with the latest processed cloud response.
+                </p>
+                <p class="direction-sentence" id="wait-message" aria-live="polite"></p>
+            </section>
+
+            <section class="letter-controls" aria-label="Letter choices">
+                <button class="btn btn-warning letter-button" onclick="cloudStart('a')" type="button">A</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('b')" type="button">B</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('c')" type="button">C</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('d')" type="button">D</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('e')" type="button">E</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('f')" type="button">F</button>
+                <button class="btn btn-warning letter-button" onclick="cloudStart('g')" type="button">G</button>
+            </section>
+
+            <div class="alert alert-warning display-margin" role="status" aria-live="polite" id="response-text">
+                Waiting For Response
+            </div>
+
+            <section class="terminal-card" aria-labelledby="output-title">
+                <h2 id="output-title">Latest raw classifier response</h2>
+                <div id="output" class="terminal-response"></div>
+            </section>
         </div>
-    </nav>
-    <br/>
-    <form>
-        <div id="" class="">
-            <h6 class="direction-sentence">Sign a letter and click a button to verify your answer</h6>
-            <br/>
-            <h6 class="direction-sentence" id="wait-message"></h6>
-            <br/>
-            <button class="btn btn-warning" onclick="cloudStart('a')" type="button" style="margin-left: 1rem"> A
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('b')" type="button" style="margin-left: 1rem"> B
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('c')" type="button" style="margin-left: 1rem"> C
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('d')" type="button" style="margin-left: 1rem"> D
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('e')" type="button" style="margin-left: 1rem"> E
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('f')" type="button" style="margin-left: 1rem"> F
-            </button>
-            <button class="btn btn-warning" onclick="cloudStart('g')" type="button" style="margin-left: 1rem"> G
-            </button>
-        </div>
-    </form>
-    <br/>
-    <div class="alert alert-warning display-margin" role="alert" id="response-text">Waiting For Response</div>
-    <form>
-        <div id="output" class="terminal-response">
-        </div>
-    </form>
-    <br/>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </section>
+</main>
 <script src="js/index.js"></script>
 </body>
+</html>

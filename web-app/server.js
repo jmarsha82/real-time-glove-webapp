@@ -1,19 +1,21 @@
-require('dotenv').config();
-const requirejs = require('requirejs');
-const PythonShell = require('python-shell');
 const express = require('express');
-const bodyParser = require('body-parser');
+const path = require('path');
+
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Set public folder as root
-app.use(express.static('public'));
+const publicDirectory = path.join(__dirname, 'public');
 
-app.use('/scripts', express.static(`/node_modules/`));
+app.use(express.static(publicDirectory));
+app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
 
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+});
 
-const errorHandler = (err, req, res) => {
+const errorHandler = (err, req, res, next) => {
     if (err.response) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
@@ -27,7 +29,22 @@ const errorHandler = (err, req, res) => {
     }
 };
 
-app.listen(port, () => {
-    // eslint-disable-next-line no-console
-    console.log('listening on %d', port);
-});
+app.use(errorHandler);
+
+function startServer(listenPort = port) {
+    return app.listen(listenPort, () => {
+        // eslint-disable-next-line no-console
+        console.log('listening on %d', listenPort);
+    });
+}
+
+if (require.main === module) {
+    startServer();
+}
+
+module.exports = {
+    app,
+    errorHandler,
+    publicDirectory,
+    startServer,
+};
