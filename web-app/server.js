@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 const publicDirectory = path.join(__dirname, 'public');
 
 app.use(express.static(publicDirectory));
-app.use('/scripts', express.static(path.join(__dirname, 'node_modules')));
+app.use('/scripts', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
