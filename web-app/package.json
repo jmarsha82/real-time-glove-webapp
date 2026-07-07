@@ -13,7 +13,7 @@
   "author": "Michael Wanyoike",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "express": "^5.2.1"
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2"
   }
 }
